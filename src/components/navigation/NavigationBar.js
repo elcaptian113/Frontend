@@ -3,13 +3,14 @@ import logo from './../../images/logo.JPG';
 import brandLogo from './../../images/brandLogo.jpg';
 import React from 'react';
 import {Navbar, Container, Nav, NavDropdown, Form, Button} from 'react-bootstrap';
-import {Link, useNavigate} from 'react-router-dom';
-import { useState } from 'react';
+import {Link,} from 'react-router-dom';
+
 
 
 function NavBar() {
-    const role = "";
-    const username = "";
+    const role = localStorage.getItem('usertype');
+    const username = localStorage.getItem('username');
+
     //const [name, setName] = useState('');
     //const [error, setError] = useState(null);
     //const [success, setSuccess] = useState(false);

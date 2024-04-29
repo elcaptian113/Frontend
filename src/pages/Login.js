@@ -1,21 +1,27 @@
-import { useRef, useState, useEffect, useContext } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import AuthContext from "../context/AuthProvider";
+import { useRef, useState, useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
 import axios from '../api/axios';
-import useAuth from '../context/auth/useAuth';
+
 
 
 const LOGIN_URL = '/login';
 
 const Login = () => {
     const nav = useNavigate();
-    const { auth, setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
 
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
+
+    const auth = localStorage.getItem('loggedIn');
+
+    useEffect(() => {
+        if ( auth == 1){
+            nav('/profile');
+        }
+    }, [])
 
     useEffect(() => {
         userRef.current.focus();
@@ -41,11 +47,18 @@ const Login = () => {
             const username = response?.data?.username;
             const usertype = response?.data?.usertype;
             const accessToken = response?.data?.accessToken;
-            setAuth( { userid: userid, username: username, usertype: usertype, accessToken: accessToken } );
+            
+            localStorage.setItem('userid', userid);
+            localStorage.setItem('username', username);
+            localStorage.setItem('usertype', usertype);
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('loggedIn', 1)
+
             setUser('');
             setPwd('');
             nav('/profile');
             window.location.reload(false);
+
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
@@ -60,11 +73,6 @@ const Login = () => {
         }
     }
 
-    //if (auth) {
-    //    nav('/profile');
-    //    window.location.reload(false);
-    //}
-    //else {
         return (
             <>
                 <center>
@@ -103,7 +111,8 @@ const Login = () => {
                 </center>
             </>
         )
-    //}
+        
+    
 }
 
 export default Login
