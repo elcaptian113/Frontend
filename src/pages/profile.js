@@ -8,14 +8,14 @@ import useAuth from '../context/auth/useAuth';
 
 
 function Profile(){
-    const { auth } = useAuth();
-    const { setAuth } = useContext(AuthContext);
+    const {  auth, setAuth } = useContext(AuthContext);
+    const {auth: {username}} = useAuth();
 
     const nav = useNavigate();
 
     const logout = (e) => {
 
-        let user = auth?.username
+        let user = auth.username
         let response = Logout(user);
         setAuth({});
         if (response){
@@ -23,7 +23,7 @@ function Profile(){
             window.location.reload(false);
         }
     }
-    console.log(auth);
+    console.log(auth.username);
     return(
            <div className='home-index'>
                 <Container>

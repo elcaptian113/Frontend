@@ -9,8 +9,7 @@ const LOGIN_URL = '/login';
 
 const Login = () => {
     const nav = useNavigate();
-    const { setAuth } = useContext(AuthContext);
-    const { Auth } = useAuth();
+    const { auth, setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
 
@@ -42,7 +41,7 @@ const Login = () => {
             const username = response?.data?.username;
             const usertype = response?.data?.usertype;
             const accessToken = response?.data?.accessToken;
-            setAuth({ userid, username, usertype, accessToken });
+            setAuth( { userid: userid, username: username, usertype: usertype, accessToken: accessToken } );
             setUser('');
             setPwd('');
             nav('/profile');
@@ -61,11 +60,11 @@ const Login = () => {
         }
     }
 
-    if (Auth) {
-        nav('/profile');
-        window.location.reload(false);
-    }
-    else {
+    //if (auth) {
+    //    nav('/profile');
+    //    window.location.reload(false);
+    //}
+    //else {
         return (
             <>
                 <center>
@@ -104,7 +103,7 @@ const Login = () => {
                 </center>
             </>
         )
-    }
+    //}
 }
 
 export default Login
