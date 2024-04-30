@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {Container, Button} from 'react-bootstrap';
-import { Logout } from '../actions.js/action';
+import { Logout, getUsers } from '../actions.js/action';
 import { useNavigate} from 'react-router-dom';
 
 
 
 
-function Profile(){
+function Home(){
 
     const nav = useNavigate();
 
@@ -21,8 +21,8 @@ function Profile(){
     }, [])
 
     useEffect(() => {
-        if ( role == 'ADMIN'){
-            nav('/home');
+        if ( role !== 'ADMIN'){
+            nav('/profile');
         }
     }, [])
 
@@ -36,13 +36,31 @@ function Profile(){
             window.location.reload(false);
         }
     }
-
     
+    const [users, setUsers] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        if(users.length <=0){
+            const fetchData = async () => {
+                try{
+                    let data = await getUsers();
+                    setUsers(data);
+                    console.log(data)
+                }
+                catch (e) {
+                    setError(e.message);
+                }
+            }
+
+            fetchData();
+        }
+    },[users])
 
         return(
             <div className='home-index'>
                  <Container>
-                     <h1>Logged In Successfull</h1>
+                     <h1>Admin Home</h1>
                      <br></br>
                                  
                                  <p>Welcome {username}!</p>
@@ -53,4 +71,4 @@ function Profile(){
 
 }
 
-export default Profile;
+export default Home;

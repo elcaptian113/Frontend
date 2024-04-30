@@ -3,13 +3,28 @@ import logo from './../../images/logo.JPG';
 import brandLogo from './../../images/brandLogo.jpg';
 import React from 'react';
 import {Navbar, Container, Nav, NavDropdown, Form, Button} from 'react-bootstrap';
-import {Link,} from 'react-router-dom';
+import {Link, useNavigate,} from 'react-router-dom';
+import { Logout } from '../../actions.js/action';
 
 
 
 function NavBar() {
+
+    const nav = useNavigate();
+
     const role = localStorage.getItem('usertype');
     const username = localStorage.getItem('username');
+
+    const logout = (e) => {
+
+        let user = username;
+        let response = Logout(user);
+        localStorage.clear();
+        if (response){
+            nav('/');
+            window.location.reload(false);
+        }
+    }
 
     //const [name, setName] = useState('');
     //const [error, setError] = useState(null);
@@ -78,7 +93,7 @@ function NavBar() {
                      <Navbar.Toggle className='navigation-bar' aria-controls={`offcanvasNavbar-expand-${expand}`} />
                      <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-start flex-grow-1 pe-3">
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/">Dashboard</Nav.Link>
                         <NavDropdown title="Admin" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/">something</NavDropdown.Item>
@@ -105,8 +120,12 @@ function NavBar() {
                      <Navbar.Toggle className='navigation-bar' aria-controls={`offcanvasNavbar-expand-${expand}`} />
                      <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-start flex-grow-1 pe-3">
-                        <Nav.Link as={Link} to="/">Profile</Nav.Link>
+                        <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
                         <Nav.Link as={Link} to="/">Learn</Nav.Link>
+                        <Navbar.Text className="justify-content-end">
+                        Signed in as: {localStorage.getItem('username')}
+                        <Button variant="danger" onClick={logout}>Logout</Button>
+                        </Navbar.Text>
                     </Nav>
                     </Navbar.Collapse>
                     </Container>
