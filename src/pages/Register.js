@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from '../api/axios';
+import axiosMain from '../api/axios';
 
 
 const USER_REGEX = /^[a-zA-Z][a-zA-z0-9-_]{8,45}$/;
@@ -55,7 +55,7 @@ const Register = () => {
             return;
         }
         try { 
-            const response = await axios.post(REGISTER_URL,
+            const response = await axiosMain.post(REGISTER_URL,
                 {username, password},
                 {
                     headers: { 'Content-Type': 'multipart/form-data' },

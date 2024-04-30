@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
-import axios from '../api/axios';
+import axiosMain from '../api/axios';
 
 
 
@@ -35,9 +35,11 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(LOGIN_URL,
+            const response = await axiosMain.post(LOGIN_URL,
+                
                 JSON.stringify({ username: user, password: pwd }),
                 {
+                    
                     headers: { 'Content-Type': 'application/json' },
                     //withCredentials: true
                 }
@@ -47,11 +49,13 @@ const Login = () => {
             const username = response?.data?.username;
             const usertype = response?.data?.usertype;
             const accessToken = response?.data?.accessToken;
+            const refreshToken = response?.data?.refreshToken;
             
             localStorage.setItem('userid', userid);
             localStorage.setItem('username', username);
             localStorage.setItem('usertype', usertype);
             localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('refreshToken', refreshToken);
             localStorage.setItem('loggedIn', 1)
 
             setUser('');

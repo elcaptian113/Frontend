@@ -69,8 +69,7 @@ function NavBar() {
     else if (username && role == "ADMIN"){
         return(
             <div className='navigation-bar'>
-                
-                <img src={logo} className="App-logo" alt="logo" />
+
                 <>
                 {[false].map((expand) => (
                     <Navbar collapseOnSelect expand="lg" className="mb-3">
@@ -98,7 +97,6 @@ function NavBar() {
         return(
             <div className='navigation-bar'>
                 
-                <img src={logo} className="App-logo" alt="logo" />
                 <>
                 {[false].map((expand) => (
                     <Navbar collapseOnSelect expand="lg" className="mb-3">

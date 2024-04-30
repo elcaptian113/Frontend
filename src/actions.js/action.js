@@ -11,7 +11,7 @@ const Logout = async (username) => {
 }
 
 const getUsers = async() => {
-    let response = await api.get("/users",  { headers: {withCredentials: true} } ).then(response => {
+    let response = await api.get("/users" ).then(response => {
         return response.data;
     });
     
