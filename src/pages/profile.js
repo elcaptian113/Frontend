@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {Container, Button} from 'react-bootstrap';
-import { Logout } from '../actions.js/action';
+import { Logout, getUsers } from '../actions.js/action';
 import { useNavigate} from 'react-router-dom';
 
 
@@ -14,7 +14,7 @@ function Profile(){
     const auth = localStorage.getItem('loggedIn');
 
     useEffect(() => {
-        if ( auth !== 1){
+        if ( auth !== '1'){
             nav('/');
         }
     }, [])
@@ -30,6 +30,25 @@ function Profile(){
         }
     }
     
+    const [users, setUsers] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        if(users.length <=0){
+            const fetchData = async () => {
+                try{
+                    let data = await getUsers();
+                    setUsers(data);
+                    console.log(data)
+                }
+                catch (e) {
+                    setError(e.message);
+                }
+            }
+
+            fetchData();
+        }
+    },[users])
 
         return(
             <div className='home-index'>

@@ -18,10 +18,10 @@ const Login = () => {
     const auth = localStorage.getItem('loggedIn');
 
     useEffect(() => {
-        if ( auth == 1){
+        if ( auth == "1"){
             nav('/profile');
         }
-    }, [])
+    })
 
     useEffect(() => {
         userRef.current.focus();
