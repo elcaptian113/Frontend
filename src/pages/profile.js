@@ -1,6 +1,7 @@
+import './login.css'
 import { useEffect } from 'react';
 import {Container, Button} from 'react-bootstrap';
-import { Logout } from '../actions.js/action';
+import { Logout } from '../actions/logout';
 import { useNavigate} from 'react-router-dom';
 
 
@@ -26,17 +27,6 @@ function Profile(){
         }
     }, [])
 
-    const logout = (e) => {
-
-        let user = username;
-        let response = Logout(user);
-        localStorage.clear();
-        if (response){
-            nav('/');
-            window.location.reload(false);
-        }
-    }
-
     
 
         return(
@@ -46,7 +36,7 @@ function Profile(){
                      <br></br>
                                  
                                  <p>Welcome {username}!</p>
-                                 <Button variant="danger" onClick={logout}>Logout</Button>
+                                 
                 </Container>
              </div>
      );

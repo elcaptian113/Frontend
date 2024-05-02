@@ -1,5 +1,5 @@
 import axios from "../api/axios";
-import api from "../api/api";
+
 
 const Logout = async (username) => {
     let response = await axios.delete("/logout", {data: {id:username}}
@@ -10,12 +10,4 @@ const Logout = async (username) => {
     return response;
 }
 
-const getUsers = async() => {
-    let response = await api.get("/users" ).then(response => {
-        return response.data;
-    });
-    
-    return response;
-};
-
-export { Logout, getUsers}
+export { Logout }

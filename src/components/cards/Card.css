@@ -1,0 +1,11 @@
+.card {
+    width: 14rem;
+    margin: 1rem;
+    text-align: center;
+}
+@media (min-width: 576px){
+    .card{
+        min-width: 50%;
+    }
+}
+

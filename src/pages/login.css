@@ -15,14 +15,13 @@ html {
 body {
     min-height: 100vh;
     background-color: rgb(133, 140, 238);
+    text-align: center;    
 }
 
 .App {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh; 
-    padding: 1rem 0.5rem;
   }
 
 
@@ -65,6 +64,15 @@ button {
 }
 
 button {
+  padding: 0.5rem;
+}
+
+.btnSign {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
   padding: 0.5rem;
 }
 

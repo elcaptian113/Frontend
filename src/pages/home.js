@@ -1,6 +1,7 @@
+import './login.css'
 import { useEffect, useState } from 'react';
 import {Container, Button} from 'react-bootstrap';
-import { Logout, getUsers } from '../actions.js/action';
+import { getUsers } from '../actions/users';
 import { useNavigate} from 'react-router-dom';
 
 
@@ -25,17 +26,6 @@ function Home(){
             nav('/profile');
         }
     }, [])
-
-    const logout = (e) => {
-
-        let user = username;
-        let response = Logout(user);
-        localStorage.clear();
-        if (response){
-            nav('/');
-            window.location.reload(false);
-        }
-    }
     
     const [users, setUsers] = useState([]);
     const [error, setError] = useState(null);
@@ -64,7 +54,7 @@ function Home(){
                      <br></br>
                                  
                                  <p>Welcome {username}!</p>
-                                 <Button variant="danger" onClick={logout}>Logout</Button>
+                                 
                 </Container>
              </div>
      );

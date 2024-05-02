@@ -1,10 +1,11 @@
 
+import './NavBar.css';
 import logo from './../../images/logo.JPG';
 import brandLogo from './../../images/brandLogo.jpg';
 import React from 'react';
 import {Navbar, Container, Nav, NavDropdown, Form, Button} from 'react-bootstrap';
 import {Link, useNavigate,} from 'react-router-dom';
-import { Logout } from '../../actions.js/action';
+import { Logout } from '../../actions/logout';
 
 
 
@@ -26,38 +27,9 @@ function NavBar() {
         }
     }
 
-    //const [name, setName] = useState('');
-    //const [error, setError] = useState(null);
-    //const [success, setSuccess] = useState(false);
-    //const nav = useNavigate();
 
-    //const submitData = async(group) => {
-    //    try{
-    //        nav('/ViewSearch/' + group.name);
-    //        window.location.reload(false);
-    //    }
-    //    catch (e){
-    //        setError(e.message);
-    //    }  
-    //}
 
-    //const submitGroup= (e) => {
-    //    e.preventDefault();
-
-    //    setSuccess(false);
-    //    setError('');
-
-    //    if (name){
-    //        let group = {
-    //            name: name,
-    //        };
-
-    //        submitData(group);
-    //    }
-    //    else{
-    //        setError('Must contain a value!')
-    //    }
-    //}
+  
     if (!username){
         return(
             <div className='navigation-bar'>
@@ -100,6 +72,10 @@ function NavBar() {
                             <NavDropdown.Item href="/">other something</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
+                    <Navbar.Text className="justify-content-end">
+                            Signed in as: {localStorage.getItem('username')}
+                            <Button onClick={logout}>Logout</Button>
+                    </Navbar.Text>
                     </Navbar.Collapse>
                     </Container>
                 </Navbar>
@@ -121,12 +97,12 @@ function NavBar() {
                      <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-start flex-grow-1 pe-3">
                         <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-                        <Nav.Link as={Link} to="/">Learn</Nav.Link>
-                        <Navbar.Text className="justify-content-end">
-                        Signed in as: {localStorage.getItem('username')}
-                        <Button variant="danger" onClick={logout}>Logout</Button>
-                        </Navbar.Text>
+                        <Nav.Link as={Link} to="/subjects">Learn</Nav.Link>
                     </Nav>
+                    <Navbar.Text className="justify-content-right">
+                        Signed in as: {localStorage.getItem('username')} 
+                        <Button onClick={logout}>Logout</Button>
+                        </Navbar.Text>
                     </Navbar.Collapse>
                     </Container>
                 </Navbar>

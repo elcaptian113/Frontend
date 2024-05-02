@@ -14,6 +14,10 @@ const Register = () => {
     const errRef = useRef();
 
     const [username, setUser] = useState('');
+    const [first_name, setFirst_Name] = useState('');
+    const [last_name, setLast_name] = useState('');
+    const [dob, setDob] = useState('');
+    const [account_type, setAccType] = useState('');
     const [validName, setValidName] = useState(false);
     const [userFocus, setUserFocus] = useState(false);
 
@@ -57,7 +61,7 @@ const Register = () => {
         }
         try { 
             const response = await axiosMain.post(REGISTER_URL,
-                {username, password},
+                {username, first_name, last_name, dob, password},
                 {
                     headers: { 'Content-Type': 'multipart/form-data' },
                 }
@@ -65,6 +69,9 @@ const Register = () => {
             setSuccess(true);
             setUser('');
             setPwd('');
+            setDob(' ');
+            setFirst_Name(' ');
+            setLast_name(' ');
             setMatchPwd('');
         } catch (err) {
             if (!err?.response) {
@@ -118,6 +125,65 @@ const Register = () => {
                             Letters, numbers, underscores, hyphens allowed.
                         </p>
 
+                        <label htmlFor="first_name">
+                            First Name:
+                        </label>
+                        <input
+                            type="text"
+                            id="first_name"
+                            autoComplete="off"
+                            onChange={(e) => setFirst_Name(e.target.value)}
+                            value={first_name}
+                            required
+                            onFocus={() => setUserFocus(true)}
+                            onBlur={() => setUserFocus(false)}
+                        />
+
+                        <label htmlFor="last_name">
+                            Last Name:
+                        </label>
+                        <input
+                            type="text"
+                            id="last_name"
+                            autoComplete="off"
+                            onChange={(e) => setLast_name(e.target.value)}
+                            value={last_name}
+                            required
+                            onFocus={() => setUserFocus(true)}
+                            onBlur={() => setUserFocus(false)}
+                        />
+
+                        <label htmlFor="dob">
+                            Date Of Birth:
+                        </label>
+                        <input
+                            type="date"
+                            id="dob"
+                            autoComplete="off"
+                            onChange={(e) => setDob(e.target.value)}
+                            value={dob}
+                            required
+                            onFocus={() => setUserFocus(true)}
+                            onBlur={() => setUserFocus(false)}
+                        />
+
+                        <label htmlFor="account_type">
+                            Select Account Type:
+                        </label>
+                        <select
+                            id="account_type"
+                            autoComplete="off"
+                            onChange={(e) => setAccType(e.target.value)}
+                            value={account_type}
+                            required
+                            onFocus={() => setUserFocus(true)}
+                            onBlur={() => setUserFocus(false)}
+                            defaultValue="student"
+                        >
+                            <option vlue ="student">Student/Child Account</option>
+                            <option value ="parent">Parent Account</option>
+                            
+                        </select>
 
                         <label htmlFor="password">
                             Password:
@@ -164,7 +230,7 @@ const Register = () => {
                             Must match the first password input field.
                         </p>
 
-                        <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                        <button className="btnSign" disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
                     </form>
                     <p>
                         Already registered?<br />
