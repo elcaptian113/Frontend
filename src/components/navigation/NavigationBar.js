@@ -67,10 +67,6 @@ function NavBar() {
                     <Nav className="justify-content-start flex-grow-1 pe-3">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/">Dashboard</Nav.Link>
-                        <NavDropdown title="Admin" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/">something</NavDropdown.Item>
-                            <NavDropdown.Item href="/">other something</NavDropdown.Item>
-                        </NavDropdown>
                     </Nav>
                     <Navbar.Text className="justify-content-end">
                             Signed in as: {localStorage.getItem('username')}

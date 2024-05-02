@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Landing from './pages/landing'
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/profile';
@@ -20,7 +21,8 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route index element={<Login />} />
+          <Route index element={<Landing />} />
+          <Route path="login" element={<Login />} />
           <Route path="Register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
           <Route path="home" element={<Home />} />
@@ -31,7 +33,9 @@ function App() {
           <Route path="modules" >
             <Route path=":chapterId" element={<Modules />} />
           </Route>
-          <Route path="content" element={<Content />} />
+          <Route path="content" >
+            <Route path=":moduleId" element={<Content />} />
+          </Route>
         </Routes>
       </Router>
     </div>
