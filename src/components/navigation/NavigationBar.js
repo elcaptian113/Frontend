@@ -92,8 +92,10 @@ function NavBar() {
                      <Navbar.Toggle className='navigation-bar' aria-controls={`offcanvasNavbar-expand-${expand}`} />
                      <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-start flex-grow-1 pe-3">
-                        <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-                        <Nav.Link as={Link} to="/subjects">Learn</Nav.Link>
+                        <Nav.Link as={Link} to="/profile">My Profile</Nav.Link>
+                        <Nav.Link as={Link} to="#">My Learning</Nav.Link>
+                        <Nav.Link as={Link} to="/subjects">All Learning</Nav.Link>
+                        <Nav.Link as={Link} to="/linkedaccounts">Linked Profiles</Nav.Link>
                     </Nav>
                     <Navbar.Text className="justify-content-right">
                         Signed in as: {localStorage.getItem('username')} 

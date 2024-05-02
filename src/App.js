@@ -11,6 +11,7 @@ import Subjects from './pages/subjects';
 import Chapters from './pages/chapters';
 import Modules from './pages/modules';
 import Content from './pages/content';
+import Linked from './pages/linkedAccounts';
 
 import NavBar from './components/navigation/NavigationBar';
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="Register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
           <Route path="home" element={<Home />} />
+          <Route path="linkedaccounts" element={<Linked />} />
           <Route path="subjects" element={<Subjects />} />
           <Route path="chapters" >
             <Route path=":subjectId" element={<Chapters />} />
