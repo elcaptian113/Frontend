@@ -1,6 +1,6 @@
 import './login.css'
 import {Alert, Container, CardGroup} from 'react-bootstrap';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getChapterBySubject  } from '../actions/content';
 import ChapterCard from '../components/cards/chapterCard';
@@ -13,6 +13,8 @@ function ChaptersPage(){
     const [error, setError] = useState(null);
 
     const auth = localStorage.getItem('loggedIn');
+
+    const nav = useNavigate();
 
     useEffect(() => {
         if ( auth !== '1'){

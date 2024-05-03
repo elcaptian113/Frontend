@@ -21,7 +21,7 @@ function NavBar() {
         let response = Logout(user);
         localStorage.clear();
         if (response){
-            nav('/');
+            nav('/login');
             window.location.reload(false);
         }
     }
@@ -41,7 +41,7 @@ function NavBar() {
                             <Navbar.Toggle className='navigation-bar' aria-controls={`offcanvasNavbar-expand-${expand}`} />
                             <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav className="justify-content-start flex-grow-1 pe-3">
-                                    <Nav.Link as={Link} to="/">Login</Nav.Link>
+                                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
                                     <Nav.Link as={Link} to="/Register">Register</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>
@@ -60,7 +60,7 @@ function NavBar() {
                 {[false].map((expand) => (
                     <Navbar collapseOnSelect expand="lg" className="mb-3">
                      <Container className='navigation-bar' fluid>
-                     <Navbar.Brand className='navigation-bar' as={Link} to="/"><img src={brandLogo} alt="Brand Logo"/></Navbar.Brand>
+                     <Navbar.Brand className='navigation-bar' as={Link} to="/home"><img src={brandLogo} alt="Brand Logo"/></Navbar.Brand>
                      <Navbar.Toggle className='navigation-bar' aria-controls={`offcanvasNavbar-expand-${expand}`} />
                      <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-start flex-grow-1 pe-3">
@@ -87,7 +87,7 @@ function NavBar() {
                 {[false].map((expand) => (
                     <Navbar collapseOnSelect expand="lg" className="mb-3">
                      <Container className='navigation-bar' fluid>
-                     <Navbar.Brand className='navigation-bar' as={Link} to="/"><img src={brandLogo} alt="Brand Logo"/></Navbar.Brand>
+                     <Navbar.Brand className='navigation-bar' as={Link} to="/profile"><img src={brandLogo} alt="Brand Logo"/></Navbar.Brand>
                      <Navbar.Toggle className='navigation-bar' aria-controls={`offcanvasNavbar-expand-${expand}`} />
                      <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-start flex-grow-1 pe-3">

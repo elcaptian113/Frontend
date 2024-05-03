@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 import './login.css'
 import {Container} from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function ContentPage(){
 
         const auth = localStorage.getItem('loggedIn');
+
+        const nav = useNavigate();
 
         useEffect(() => {
                 if ( auth !== '1'){

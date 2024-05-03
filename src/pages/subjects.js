@@ -3,9 +3,12 @@ import {Alert, Container, CardGroup} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { getSubjects } from '../actions/content';
 import SubjectCard from '../components/cards/subjectCard';
+import { useNavigate } from 'react-router-dom';
 
 
 function SubjectsPage(){
+
+    const nav = useNavigate();
     
     const [subjects, setSubjects] = useState([]);
     const [error, setError] = useState(null);

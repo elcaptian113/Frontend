@@ -1,6 +1,6 @@
 import './login.css'
 import {Alert, Container, CardGroup} from 'react-bootstrap';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getModuleByChapter  } from '../actions/content';
 import ModuleCard from '../components/cards/moduleCard';
@@ -12,6 +12,8 @@ function ModulesPage(){
     const [error, setError] = useState(null);
 
     const auth = localStorage.getItem('loggedIn');
+
+    const nav = useNavigate();
 
     useEffect(() => {
         if ( auth !== '1'){
