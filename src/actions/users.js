@@ -10,4 +10,20 @@ const getUsers = async() => {
     return response;
 };
 
-export { getUsers}
+const getByUserId = async(user) => {
+    let response = await api.get("/users/" +  user).then(response => {
+        return response.data;
+    });
+    
+    return response;
+};
+
+const getByUsername = async(user) => {
+    let response = await api.get("/users/username/" +  user).then(response => {
+        return response.data;
+    });
+    
+    return response;
+};
+
+export { getUsers, getByUserId, getByUsername}

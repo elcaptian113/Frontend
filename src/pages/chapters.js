@@ -12,6 +12,14 @@ function ChaptersPage(){
     let [chapters, setChapters] = useState([]);
     const [error, setError] = useState(null);
 
+    const auth = localStorage.getItem('loggedIn');
+
+    useEffect(() => {
+        if ( auth !== '1'){
+            nav('/');
+        }
+    }, [])
+
 
     useEffect(() => {
         if(chapters.length <=0){

@@ -10,6 +10,14 @@ function SubjectsPage(){
     const [subjects, setSubjects] = useState([]);
     const [error, setError] = useState(null);
 
+    const auth = localStorage.getItem('loggedIn');
+
+    useEffect(() => {
+        if ( auth !== '1'){
+            nav('/');
+        }
+    }, [])
+
     useEffect(() => {
         if(subjects.length <=0){
             const fetchData = async () => {

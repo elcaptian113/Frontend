@@ -11,6 +11,14 @@ function ModulesPage(){
     let [modules, setModules] = useState([]);
     const [error, setError] = useState(null);
 
+    const auth = localStorage.getItem('loggedIn');
+
+    useEffect(() => {
+        if ( auth !== '1'){
+            nav('/');
+        }
+    }, [])
+
 
     useEffect(() => {
         if(modules.length <=0){

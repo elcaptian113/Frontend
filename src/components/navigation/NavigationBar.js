@@ -1,9 +1,8 @@
 
 import './NavBar.css';
-import logo from './../../images/logo.JPG';
 import brandLogo from './../../images/brandLogo.jpg';
 import React from 'react';
-import {Navbar, Container, Nav, NavDropdown, Form, Button} from 'react-bootstrap';
+import {Navbar, Container, Nav, Button} from 'react-bootstrap';
 import {Link, useNavigate,} from 'react-router-dom';
 import { Logout } from '../../actions/logout';
 
