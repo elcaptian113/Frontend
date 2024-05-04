@@ -92,7 +92,7 @@ function NavBar() {
                      <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-start flex-grow-1 pe-3">
                         <Nav.Link as={Link} to="/profile">My Profile</Nav.Link>
-                        <Nav.Link as={Link} to="#">My Learning</Nav.Link>
+                        <Nav.Link as={Link} to="mycontent">My Learning</Nav.Link>
                         <Nav.Link as={Link} to="/subjects">All Learning</Nav.Link>
                         <Nav.Link as={Link} to="/linkedaccounts">Linked Profiles</Nav.Link>
                     </Nav>

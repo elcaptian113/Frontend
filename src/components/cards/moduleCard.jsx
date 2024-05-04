@@ -5,8 +5,7 @@ import './Card.css';
 function ModuleCard(props) {
     
     return(
-        //<Link to={"/content/" + props.moduleId}>
-        <Link to={"/content"}>
+        <Link to={"/content/" + props.moduleId}>
         <Card hoverable style={{flex: '200px'}} key={props.id}>
             <Card.Body>
                 <Card.Title>{props.subjectName}</Card.Title>

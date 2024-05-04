@@ -12,6 +12,9 @@ import Chapters from './pages/chapters';
 import Modules from './pages/modules';
 import Content from './pages/content';
 import Linked from './pages/linkedAccounts';
+import MyContent from './pages/myContent';
+import LinkContent from './pages/linkContent';
+import UA from './pages/UA'
 
 import NavBar from './components/navigation/NavigationBar';
 
@@ -28,6 +31,10 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="home" element={<Home />} />
           <Route path="linkedaccounts" element={<Linked />} />
+          <Route path="mycontent" element={<MyContent />} />
+          <Route path="linkcontent" >
+            <Route path=":userid" element={<LinkContent />} />
+          </Route>
           <Route path="subjects" element={<Subjects />} />
           <Route path="chapters" >
             <Route path=":subjectId" element={<Chapters />} />
@@ -36,8 +43,9 @@ function App() {
             <Route path=":chapterId" element={<Modules />} />
           </Route>
           <Route path="content" >
-            <Route path=":moduleId" element={<Content />} />
+            <Route path=":moduleid" element={<Content />} />
           </Route>
+          <Route path="ua" element={<UA />} />
         </Routes>
       </Router>
     </div>

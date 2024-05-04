@@ -170,6 +170,13 @@ const LinkPage = () => {
         
         }     
 
+        const viewStudent = (student) => {
+            localStorage.setItem('student', student);
+
+            nav('/linkContent/' + student);
+
+        }
+
         const submitrequest= (e) => {
                 e.preventDefault();
         
@@ -274,7 +281,9 @@ const LinkPage = () => {
                                                         <td>{request.user.last_name}</td>
                                                         <td>{request.user.username}</td>
                                                         <td>{request.status}</td>
-                                                        <td><button class="btn btn-danger" onClick={() => declineRequest(request.linkid)} >Delete</button></td>
+                                                        <td>
+                                                            <button class="btn btn-success" onClick={() => viewStudent(request.studentid)} >View</button>
+                                                        </td>
                                                         </tr>
                                                 ))
                                         }

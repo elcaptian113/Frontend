@@ -12,7 +12,7 @@ const getSubjects = async() => {
 
 //get chapter by subject
 const getChapterBySubject = async(subject) => {
-    let response = await axios.get("chapters/subject/" +  subject).then(response => {
+    let response = await axios.get("/chapters/subject/" +  subject).then(response => {
         return response.data;
     });
     
@@ -21,7 +21,16 @@ const getChapterBySubject = async(subject) => {
 
 //get module by subject chapter
 const getModuleByChapter = async(chapter) => {
-    let response = await axios.get("modules/chapter/" +  chapter).then(response => {
+    let response = await axios.get("/modules/chapter/" +  chapter).then(response => {
+        return response.data;
+    });
+    
+    return response;
+};
+
+//get content by module
+const getContent = async(module) => {
+    let response = await axios.get("/content/" +  module).then(response => {
         return response.data;
     });
     
@@ -30,4 +39,4 @@ const getModuleByChapter = async(chapter) => {
 
 
 
-export { getSubjects, getChapterBySubject, getModuleByChapter }
+export { getSubjects, getChapterBySubject, getModuleByChapter, getContent }

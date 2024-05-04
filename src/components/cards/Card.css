@@ -2,10 +2,10 @@
     width: 14rem;
     margin: 1rem;
     text-align: center;
+    white-space: pre-line;
 }
 @media (min-width: 576px){
     .card{
         min-width: 50%;
     }
 }
-

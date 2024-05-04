@@ -61,9 +61,9 @@ const Register = () => {
         }
         try { 
             const response = await axiosMain.post(REGISTER_URL,
-                {username, first_name, last_name, dob, password},
+                {username, first_name, last_name, dob, password, account_type},
                 {
-                    headers: { 'Content-Type': 'multipart/form-data' },
+                    headers: { 'Content-Type': 'application/json' },
                 }
             );
             setSuccess(true);
@@ -88,13 +88,13 @@ const Register = () => {
     return (
         <>
             {success ? (
-                <section>
+                <center><section>
                     <h1>Registration successful.</h1>
                     <h1>Welcome to Geek to me!</h1>
                     <p>
                         <a href="/login">Sign In</a>
                     </p>
-                </section>
+                </section></center>
             ) : (
                 <center><section>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
@@ -180,7 +180,7 @@ const Register = () => {
                             onBlur={() => setUserFocus(false)}
                             defaultValue="student"
                         >
-                            <option vlue ="student">Student/Child Account</option>
+                            <option value ="student">Student/Child Account</option>
                             <option value ="parent">Parent Account</option>
                             
                         </select>
