@@ -3,6 +3,7 @@ import {Alert, Container, Table} from 'react-bootstrap';
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getActivityByUser } from '../actions/courseActivity';
+import user2 from '../images/user 3 activity.JPG'
 
 
 
@@ -61,6 +62,43 @@ function LinkContentPage(){
                     </Alert>
                </Container>
             </div>
+      );
+    }
+    else if (localStorage.getItem('student') == "3"){
+        return(
+            <div className='my-content-index'>
+                              
+            <h1>View {linkName}'s learning journey so far...</h1>
+
+            <Container>
+            <img src={user2} alt="Logo" class="responsive" />
+                    <Table striped bordered hover size="sm">
+                    <thead>
+                            <tr>
+                            <th>Subject:</th>
+                            <th>Chapter:</th>
+                            <th>Module:</th>
+                            <th>Date Accessed</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            {
+                                    myContent.map((request) => (
+                                            <tr key={request.id}>
+                                            <td>{request.module.chapter.subject.name}</td>
+                                            <td>{request.module.chapter.chapter_name}</td>
+                                            <td>{request.module.module_name}</td>
+                                            <td>{request.date}</td>
+                                            </tr>
+                                    ))
+                            }
+                            
+                    </tbody>
+                    </Table> 
+                </Container>
+            
+    
+</div>
       );
     }
     else if (myContent){

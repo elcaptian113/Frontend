@@ -14,7 +14,8 @@ import Content from './pages/content';
 import Linked from './pages/linkedAccounts';
 import MyContent from './pages/myContent';
 import LinkContent from './pages/linkContent';
-import UA from './pages/UA'
+import UA from './pages/UA';
+import Dash from './pages/dash';
 
 import NavBar from './components/navigation/NavigationBar';
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="Register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
           <Route path="home" element={<Home />} />
+          <Route path="dashboard" element={<Dash />} />
           <Route path="linkedaccounts" element={<Linked />} />
           <Route path="mycontent" element={<MyContent />} />
           <Route path="linkcontent" >

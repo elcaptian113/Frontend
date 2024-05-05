@@ -3,6 +3,8 @@ import {Alert, Container, Table} from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getActivityByUser } from '../actions/courseActivity';
+import user1 from '../images/user 2 activity.JPG'
+import user2 from '../images/user 3 activity.JPG'
 
 
 
@@ -41,7 +43,83 @@ function MyContentPage(){
 
     console.log(myContent);
 
-    if (myContent){
+    <img src={logo} alt="Logo" class="responsive" />
+
+    if (userid == "2"){
+        return(
+           <div className='my-content-index'>
+                              
+                        <h1>View your learning journey so far...</h1>
+
+                        <Container>
+                        <img src={user1} alt="Logo" class="responsive" />
+                                <Table striped bordered hover size="sm">
+                                <thead>
+                                        <tr>
+                                        <th>Subject:</th>
+                                        <th>Chapter:</th>
+                                        <th>Module:</th>
+                                        <th>Date Accessed</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {
+                                                myContent.map((request) => (
+                                                        <tr key={request.id}>
+                                                        <td>{request.module.chapter.subject.name}</td>
+                                                        <td>{request.module.chapter.chapter_name}</td>
+                                                        <td>{request.module.module_name}</td>
+                                                        <td>{request.date}</td>
+                                                        </tr>
+                                                ))
+                                        }
+                                        
+                                </tbody>
+                                </Table> 
+                            </Container>
+                        
+                
+            </div>
+      );
+    }
+    else if (userid == "3"){
+        return(
+           <div className='my-content-index'>
+                              
+                        <h1>View your learning journey so far...</h1>
+
+                        <Container>
+                        <img src={user2} alt="Logo" class="responsive" />
+                                <Table striped bordered hover size="sm">
+                                <thead>
+                                        <tr>
+                                        <th>Subject:</th>
+                                        <th>Chapter:</th>
+                                        <th>Module:</th>
+                                        <th>Date Accessed</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {
+                                                myContent.map((request) => (
+                                                        <tr key={request.id}>
+                                                        <td>{request.module.chapter.subject.name}</td>
+                                                        <td>{request.module.chapter.chapter_name}</td>
+                                                        <td>{request.module.module_name}</td>
+                                                        <td>{request.date}</td>
+                                                        </tr>
+                                                ))
+                                        }
+                                        
+                                </tbody>
+                                </Table> 
+                            </Container>
+                        
+                
+            </div>
+      );
+    }
+    else if (myContent){
         return(
            <div className='my-content-index'>
                               

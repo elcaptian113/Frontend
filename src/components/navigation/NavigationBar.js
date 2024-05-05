@@ -65,7 +65,7 @@ function NavBar() {
                      <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-start flex-grow-1 pe-3">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/">Dashboard</Nav.Link>
+                        <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
                     </Nav>
                     <Navbar.Text className="justify-content-end">
                             Signed in as: {localStorage.getItem('username')}
