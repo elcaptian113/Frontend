@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const  axiosMain = axios.create({
-    baseURL: 'https://backend-0d0j.onrender.com/'
+    baseURL: 'https://geektomeapi.nw.r.appspot.com'
 });
 
 export default axiosMain

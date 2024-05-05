@@ -3,7 +3,7 @@ import axiosMain from './axios';
 
 
 const api = axios.create({
-  baseURL: 'https://backend-0d0j.onrender.com/',
+  baseURL: 'https://geektomeapi.nw.r.appspot.com',
 });
 
 api.interceptors.request.use(
