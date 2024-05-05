@@ -9,7 +9,7 @@ function LandingPage(){
         return(
            <div className='module-index'>
                 <Container>                  
-                <img src={logo} alt="Logo" />
+                <img src={logo} alt="Logo" class="responsive" />
                 <br /><br />
                 <p>Welcome to Geek to Me, where "it's all geek to me" is more than just a catchy phrase—it's our mission.</p>
                 <p>We understand that academic subjects can sometimes feel like a foreign language, leaving students </p>

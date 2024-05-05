@@ -120,3 +120,8 @@ button {
 .line {
     display: inline-block;
 }
+
+.responsive {
+    width: 100%;
+    height: auto;
+  }
