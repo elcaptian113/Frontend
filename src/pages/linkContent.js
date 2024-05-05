@@ -11,6 +11,7 @@ function LinkContentPage(){
 
     let [myContent, setContent] = useState([]);
     let [linkName, setLinkName] = useState('');
+    let [bi, setBi] = useState('');
     const [error, setError] = useState(null);
 
     const auth = localStorage.getItem('loggedIn');
@@ -31,6 +32,7 @@ function LinkContentPage(){
         if (userid !== localStorage.getItem('student')){
             nav('/UA');
         }
+        setBi(1);
         localStorage.removeItem('student')
     }, [])
 
@@ -64,7 +66,7 @@ function LinkContentPage(){
             </div>
       );
     }
-    else if (localStorage.getItem('student') == "3"){
+    else if (bi == 1){
         return(
             <div className='my-content-index'>
                               

@@ -43,7 +43,6 @@ function MyContentPage(){
 
     console.log(myContent);
 
-    <img src={logo} alt="Logo" class="responsive" />
 
     if (userid == "2"){
         return(
